@@ -1,12 +1,9 @@
 import { Router } from "express";
+import { createrProductControl } from "../controllers/product.controller.js";
 import { uploadImage } from "../middlewares/upload.middleware.js";
 
 const productsRouter = Router();
 
-productsRouter.post('/', uploadImage, (req,res) => {
-    res.status(201).json({
-        image: "http://localhost:3000/" + req.body.image
-    });
-})
+productsRouter.post('/', uploadImage, createrProductControl)
 
 export { productsRouter }
